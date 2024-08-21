@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Module01Exercise01"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             x:Class="Module01Exercise01.MainPage"
+             BackgroundColor="{DynamicResource LocalBackgroundColor}">
+
+    <ContentPage.Resources>
+        <x:String x:Key="StaticLabel">
+            User Profile Management Form!
+        </x:String>
+
+        <Style x:Key="DOBLabel" TargetType="Label"/>
+        <Style x:Key="StaticEntry" TargetType="Label"/>
+
+        <Color x:Key="LocalBackgroundColor">
+            MidnightBlue
+        </Color>
+    </ContentPage.Resources>
+        
+    
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Label x:Name="StaticResourceLabel" 
+                   Text="{StaticResource StaticLabel}"/>
+
+            <Label Text="{local:WelcomeDate}"/>
+
+            <Entry x:Name="EntryName" Placeholder="Name"
+                   Style="{StaticResource StaticEntry}"/>
+            
+            <Entry x:Name="EntryEmail" Placeholder="Email"
+                   Style="{StaticResource StaticEntry}"/>
+
+            <Label Text="Date of Birth"
+                   Style="{StaticResource DOBLabel}"/>
+            <DatePicker x:Name="DatePicker"
+                        Date="{x:Static system:DateTime.Today}"/>
+            
+            <Editor x:Name="Editor" Placeholder="Bio"/>
+
+            <Button Text="Save or Update Changes" 
+                    Clicked="SaveOrUpdateInfo"/>
+
+            <Button Text="Change Background Color"
+                    Clicked="OnChangeBackgroundColor"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
